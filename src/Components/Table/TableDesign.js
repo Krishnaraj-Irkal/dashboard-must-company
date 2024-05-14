@@ -9,7 +9,6 @@ import {
   LeftOutlined,
   RightOutlined,
 } from "@ant-design/icons";
-import { CustomScroll } from "react-custom-scroll";
 import ImagesModal from "./ImagesModal";
 
 export default function TableDesign({ pageSize }) {

@@ -41,29 +41,12 @@
   }
 }
 
-/* Hide the default scrollbar */
-::-webkit-scrollbar {
-  display: none;
+/* App.css */
+.custom-sider-menu .ant-menu-item-selected {
+  background-color: #2a3958 !important;
+  color: #fff !important;
 }
 
-/* Style for the container where the scrollbar will be applied */
-.container {
-  overflow-y: auto; /* Enable vertical scrolling */
-  scrollbar-width: thin; /* Firefox */
-  scrollbar-color: #cfd8dc #ffffff; /* Firefox */
-}
-
-/* Track */
-.container::-webkit-scrollbar-track {
-  background: #ffffff; /* Color of the track */
-}
-
-/* Handle */
-.container::-webkit-scrollbar-thumb {
-  background: #cfd8dc; /* Color of the handle */
-}
-
-/* Handle on hover */
-.container::-webkit-scrollbar-thumb:hover {
-  background: #b0bec5; /* Color of the handle on hover */
+.custom-sider-menu .ant-menu-item-selected .anticon {
+  color: #fff !important;
 }
