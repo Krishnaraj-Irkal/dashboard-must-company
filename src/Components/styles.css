@@ -1,0 +1,343 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+
+/* General styles */
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  margin: 0;
+  line-height: normal;
+}
+
+.frameParent {
+  display: flex;
+  flex-direction: column;
+  gap: 11.5px;
+  width: 100%;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  font-size: 24px;
+  color: #0b101a;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.separator {
+  align-self: stretch;
+  height: 1px;
+  position: relative;
+  border-top: 1px solid #d7d8da;
+  box-sizing: border-box;
+}
+
+.frameWrapper,
+.frameContainer,
+.parent,
+.frameDiv,
+.mustParent,
+.wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.frameDiv {
+  margin-top: 8px;
+  padding-left: 10px;
+}
+
+.must {
+  position: relative;
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background-color: #ff4d4f;
+}
+
+.div,
+.h2,
+.must {
+  position: relative;
+}
+
+.div {
+  font-weight: 500;
+  min-width: 49px;
+  display: inline-block;
+}
+
+.h2 {
+  margin: 0;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: "Noto Sans KR", sans-serif;
+  display: inline-block;
+  min-width: 83px;
+}
+
+.frameDiv {
+  font-size: 14px;
+  color: #ff4d4f;
+  flex-direction: column;
+}
+
+.mustParent {
+  gap: 4px;
+  flex-direction: row;
+}
+
+.wrapper {
+  padding: 3px 0 0;
+  flex-direction: column;
+}
+
+/* Tab styles */
+.button-tab {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 0 1px 0.5px 0;
+}
+
+.tab.active {
+  background-color: #2a3958;
+  color: #fff;
+}
+
+.tab {
+  cursor: pointer;
+  padding: 10px 21.5px;
+  background-color: #ebeef3;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  border: none;
+  color: #2a3958;
+}
+
+.first-button {
+  border-radius: 8px 0px 0px 8px;
+}
+
+.last-button {
+  border-radius: 0 8px 8px 0;
+}
+
+.h3 {
+  margin: 0;
+  position: relative;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 400;
+  font-family: "Noto Sans KR", sans-serif;
+  color: #222;
+  text-align: left;
+  display: inline-block;
+  min-width: 79px;
+}
+
+.memberInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 9;
+}
+
+.bracket-div {
+  position: relative;
+  font-size: 14px;
+  line-height: 16.8px;
+  font-family: "Noto Sans KR", sans-serif;
+  text-align: left;
+  padding-left: 5px;
+}
+
+.span {
+  color: #5a616a;
+}
+.span1 {
+  color: #ff4d4f;
+}
+.span3 {
+  text-decoration: underline;
+}
+.span2 {
+  color: #ff4d4f;
+}
+
+.filter {
+  width: 423.3px;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: var(--gap-9xs);
+  max-width: 100%;
+}
+
+.selection {
+  width: 130px;
+  margin-left: 10px;
+}
+
+.registration-wrapper {
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+/* Add this CSS to your existing styles */
+
+.ant-table-thead > tr > th {
+  text-align: center;
+  border: none; /* Remove borders from table cells and header cells */
+}
+
+/* Add this CSS to remove the border from the table */
+.ant-table-bordered .ant-table-thead > tr > th,
+.ant-table-bordered .ant-table-tbody > tr > td,
+.ant-table-bordered .ant-table-tfoot > tr > td {
+  border: none; /* Remove border from the table */
+}
+.ant-table-thead > tr > th:not(:first-child) {
+  border-left: 2px solid #fff;
+}
+
+.table-design {
+  font-family: "Noto Sans KR", sans-serif;
+  /* font-weight: 500; */
+}
+
+.ant-table-expanded-row-fixed {
+  display: flex;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+}
+
+:where(.css-dev-only-do-not-override-1okl62o).ant-table-wrapper
+  .ant-table-pagination-right {
+  justify-content: center;
+}
+
+.custom-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow-button {
+  border: none;
+}
+
+.arrow-button:hover {
+  color: #2a3958;
+}
+
+.save-button,
+.cancel-button,
+.file-download-button {
+  height: 40px;
+  margin-right: 5px;
+  font-weight: 500;
+  padding: 5px 50px;
+}
+
+.save-button {
+  color: white;
+  background-color: #2a3958;
+}
+
+.cancel-button {
+  margin-left: 5px;
+  border: 2px solid #2a3958;
+  background-color: white;
+  color: #2a3958;
+}
+
+.content1,
+.dividerIcon {
+  align-self: stretch;
+  max-width: 100%;
+}
+
+.content1 {
+  align-self: stretch;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  border: 1px solid #d7d8da;
+  text-align: left;
+  font-size: 16px;
+  color: #0b101a;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.memberInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.label {
+  padding: 10px 50px 10px 10px;
+  background-color: #eef0f4;
+  border-bottom: 1px solid white;
+  width: 100px;
+}
+
+.input {
+  width: 571px;
+  border-bottom: 1px solid #d7d8da;
+  font-size: 14px;
+  align-self: stretch;
+  padding: 10px;
+}
+
+.checkboxes {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ant-modal-title {
+  padding-bottom: 10px;
+}
+
+.memberData,
+.memberInput {
+  border: 1px solid #d7d8da;
+}
+
+.memberData {
+  padding: 10px 50px 10px 10px;
+  background-color: #eef0f4;
+  width: 100px;
+  border-right: none;
+}
+
+.memberInput {
+  border-left: none;
+  width: 190px;
+  font-size: 14px;
+  align-self: stretch;
+  padding: 10px;
+}
+
+.file-download-button {
+  background-color: #d7d8da;
+  padding: 5px 25px;
+}
+
+.image-label {
+  display: "flex";
+  align-items: "center";
+  height: "241px";
+  background-color: #eef0f4;
+  width: 150px;
+}

@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+.ant-layout-header {
+  background: white;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +39,31 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Hide the default scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Style for the container where the scrollbar will be applied */
+.container {
+  overflow-y: auto; /* Enable vertical scrolling */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #cfd8dc #ffffff; /* Firefox */
+}
+
+/* Track */
+.container::-webkit-scrollbar-track {
+  background: #ffffff; /* Color of the track */
+}
+
+/* Handle */
+.container::-webkit-scrollbar-thumb {
+  background: #cfd8dc; /* Color of the handle */
+}
+
+/* Handle on hover */
+.container::-webkit-scrollbar-thumb:hover {
+  background: #b0bec5; /* Color of the handle on hover */
 }
