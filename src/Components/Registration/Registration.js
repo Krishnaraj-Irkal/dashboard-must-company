@@ -38,27 +38,51 @@ export default function Registration() {
   const handleSave = () => {
     // Logic to determine the appropriate message based on the selected options and checkboxes
     let message = "";
-    if (approvalStatus === "승인완료") {
-      message = "승인이 완료되었습니다.";
-    } else if (approvalStatus === "승인거부") {
+    if (approvalStatus === "서류 식별 불가") {
+      message = "선택된 2명의 승인상태를 변경하시겠습니까?";
+    } else if (approvalStatus === "필수 서류 누락") {
       if (rejectionReasons.length === 0) {
-        message = "승인거부 사유를 선택해주세요.";
+        message = "저장되었습니다.";
       } else {
-        message = `선택된 ${rejectionReasons.length}개의 승인 상태를 변경하시겠습니까?`;
+        message = "필수입력항목을 입력해주세요.";
       }
+    } else if (
+      approvalStatus === "승인완료" ||
+      approvalStatus === "서류의 내용이 등록된 회원정보와 다름"
+    ) {
+      message = "이미 승인 완료된 회원입니다.";
     } else {
-      message = "승인상태 변경이 완료되었습니다.";
+      message = "이미 승인 거부된 회원입니다.";
     }
-    // Display the message in a confirmation modal
+
     Modal.confirm({
-      title: "Confirmation",
-      content: message,
+      content: (
+        <div style={{ whiteSpace: "pre-wrap", textAlign: "left" }}>
+          {message}
+        </div>
+      ),
       onOk() {
         console.log("Confirmed");
       },
       onCancel() {
         console.log("Canceled");
       },
+      okText: "확인",
+      okButtonProps: {
+        style: {
+          backgroundColor: "#2a3958",
+          borderColor: "#2a3958",
+          color: "#fff",
+          display: "block",
+          margin: "0 auto",
+        },
+      },
+      cancelButtonProps: {
+        style: {
+          display: "none",
+        },
+      },
+      centered: true, // Center the modal
     });
   };
 
@@ -85,6 +109,7 @@ export default function Registration() {
             <Button
               type="primary"
               style={{ backgroundColor: "#2a3958", marginLeft: "10px" }}
+              onClick={handleSave}
             >
               저장
             </Button>
