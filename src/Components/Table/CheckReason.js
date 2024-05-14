@@ -1,17 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Modal, Button, Checkbox, Input } from "antd";
 import "../styles.css";
-import ImagesModal from "./ImagesModal";
 
 const { TextArea } = Input;
 
 export default function CheckReason({ visible, onCancel }) {
-  const [isImagesModalVisible, setIsImagesModalVisible] = useState(false);
-  const handleConfirm = () => {
-    setIsImagesModalVisible(true);
-    onCancel();
-  };
-
   return (
     <>
       <Modal
@@ -21,7 +14,7 @@ export default function CheckReason({ visible, onCancel }) {
         width={800}
         footer={[
           <div key="footer-buttons" style={{ textAlign: "center" }}>
-            <Button className="save-button" key="back" onClick={handleConfirm}>
+            <Button className="save-button" key="back" onClick={onCancel}>
               확인
             </Button>
           </div>,
@@ -87,10 +80,6 @@ export default function CheckReason({ visible, onCancel }) {
           <div className="memberInput">김관리자</div>
         </div>
       </Modal>
-      <ImagesModal
-        visible={isImagesModalVisible}
-        onCancel={() => setIsImagesModalVisible(false)}
-      />
     </>
   );
 }

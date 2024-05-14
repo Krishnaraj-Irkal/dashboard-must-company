@@ -9,6 +9,19 @@ const { Option } = Select;
 export default function Registration() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
+  const [approvalStatus, setApprovalStatus] = useState("승인상태 변경");
+  const [rejectionReasons, setRejectionReasons] = useState([]);
+
+  const handleApprovalStatusChange = (value) => {
+    setApprovalStatus(value);
+  };
+
+  const handleRejectionReasonChange = (reason, checked) => {
+    const updatedReasons = checked
+      ? [...rejectionReasons, reason]
+      : rejectionReasons.filter((item) => item !== reason);
+    setRejectionReasons(updatedReasons);
+  };
 
   const handleCheckboxChange = (e) => {
     setIsChecked(e.target.checked);
@@ -20,6 +33,33 @@ export default function Registration() {
 
   const handleCancel = () => {
     setIsModalVisible(false);
+  };
+
+  const handleSave = () => {
+    // Logic to determine the appropriate message based on the selected options and checkboxes
+    let message = "";
+    if (approvalStatus === "승인완료") {
+      message = "승인이 완료되었습니다.";
+    } else if (approvalStatus === "승인거부") {
+      if (rejectionReasons.length === 0) {
+        message = "승인거부 사유를 선택해주세요.";
+      } else {
+        message = `선택된 ${rejectionReasons.length}개의 승인 상태를 변경하시겠습니까?`;
+      }
+    } else {
+      message = "승인상태 변경이 완료되었습니다.";
+    }
+    // Display the message in a confirmation modal
+    Modal.confirm({
+      title: "Confirmation",
+      content: message,
+      onOk() {
+        console.log("Confirmed");
+      },
+      onCancel() {
+        console.log("Canceled");
+      },
+    });
   };
 
   return (
@@ -59,7 +99,7 @@ export default function Registration() {
         width={800}
         footer={[
           <div key="footer-buttons" style={{ textAlign: "center" }}>
-            <Button className="save-button" key="submit" onClick={handleCancel}>
+            <Button className="save-button" key="submit" onClick={handleSave}>
               저장
             </Button>
             <Button className="cancel-button" key="back" onClick={handleCancel}>
@@ -94,14 +134,57 @@ export default function Registration() {
               ></div>
             </div>
             <div className="checkboxes">
-              <Checkbox>서류 식별 불가</Checkbox>
-              <Checkbox>필수 서류 누락</Checkbox>
-              <Checkbox>서류의 내용이 등록된 회원정보와 다름</Checkbox>
-              <Checkbox>
+              <Checkbox
+                onChange={(e) =>
+                  handleRejectionReasonChange(
+                    "서류 식별 불가",
+                    e.target.checked
+                  )
+                }
+              >
+                서류 식별 불가
+              </Checkbox>
+              <Checkbox
+                onChange={(e) =>
+                  handleRejectionReasonChange(
+                    "필수 서류 누락",
+                    e.target.checked
+                  )
+                }
+              >
+                필수 서류 누락
+              </Checkbox>
+              <Checkbox
+                onChange={(e) =>
+                  handleRejectionReasonChange(
+                    "서류의 내용이 등록된 회원정보와 다름",
+                    e.target.checked
+                  )
+                }
+              >
+                서류의 내용이 등록된 회원정보와 다름
+              </Checkbox>
+              <Checkbox
+                onChange={(e) =>
+                  handleRejectionReasonChange(
+                    "서류에 누락된 내용이 있음 (필수정보, 회사직인, 본인날인, 본인서명 등)",
+                    e.target.checked
+                  )
+                }
+              >
                 서류에 누락된 내용이 있음 (필수정보, 회사직인, 본인날인,
                 본인서명 등)
               </Checkbox>
-              <Checkbox>서류의 유효기간이 초과됨</Checkbox>
+              <Checkbox
+                onChange={(e) =>
+                  handleRejectionReasonChange(
+                    "서류의 유효기간이 초과됨",
+                    e.target.checked
+                  )
+                }
+              >
+                서류의 유효기간이 초과됨
+              </Checkbox>
               <Checkbox onChange={handleCheckboxChange}>직접 입력</Checkbox>
               <TextArea
                 rows={4}

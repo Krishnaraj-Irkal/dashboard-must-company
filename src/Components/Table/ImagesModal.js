@@ -39,7 +39,7 @@ export default function ImagesModal({ visible, onCancel }) {
           style={{
             display: "flex",
             alignItems: "center",
-            height: "300px",
+            height: "400px",
             width: "70px",
             borderTopLeftRadius: "10px",
             borderBottomLeftRadius: "10px",
@@ -51,7 +51,7 @@ export default function ImagesModal({ visible, onCancel }) {
             style={{ width: "4px", height: "4px", marginTop: "-10px" }}
           ></div>
         </div>
-        <div className="checkboxes">
+        <div style={{ maxHeight: "400px", overflowY: "auto", padding: "10px" }}>
           <div>
             <Dragger
               style={{
